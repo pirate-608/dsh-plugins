@@ -1,0 +1,14 @@
+{
+  "codexPlugin": {
+    "repository": "https://github.com/pirate-608/codex-plugins",
+    "commit": "51425e0eeafa4f8fc237b8dde6d774482c0009ab",
+    "path": "plugins/unity-mcp",
+    "version": "10.1.2"
+  },
+  "mcpServer": {
+    "repository": "https://github.com/CoplayDev/unity-mcp",
+    "package": "mcpforunityserver",
+    "version": "10.1.2",
+    "license": "MIT"
+  }
+}
