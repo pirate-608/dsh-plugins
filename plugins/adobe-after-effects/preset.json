@@ -1,0 +1,85 @@
+{
+  "id": "after-effects",
+  "name": "After Effects",
+  "description": "Inspect and automate Adobe After Effects.",
+  "providerName": "after-effects-skills",
+  "platform": "win32",
+  "mcpServers": [
+    {
+      "id": "after-effects-mcp",
+      "serverName": "after_effects",
+      "command": "powershell.exe",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-NonInteractive",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "./scripts/start-ae-mcp.ps1"
+      ],
+      "env": {},
+      "cwd": ".",
+      "toolCallTimeoutMs": 300000,
+      "failOnStartupError": true
+    }
+  ],
+  "policy": {
+    "serverNames": [
+      "after_effects"
+    ],
+    "readOnly": [
+      "mcp__after_effects__ae_get_project_info",
+      "mcp__after_effects__ae_get_active_composition"
+    ],
+    "ask": [],
+    "deny": []
+  },
+  "runtime": {
+    "install": {
+      "command": "powershell.exe",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "./scripts/install-ae-mcp-runtime.ps1"
+      ],
+      "cwd": "."
+    },
+    "status": {
+      "command": "powershell.exe",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "./scripts/install-ae-mcp-runtime.ps1",
+        "-CheckOnly"
+      ],
+      "cwd": "."
+    }
+  },
+  "doctor": [
+    {
+      "label": "Node.js",
+      "command": "node",
+      "args": [
+        "--version"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "command": "powershell.exe",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-Command",
+        "$PSVersionTable.PSVersion.ToString()"
+      ]
+    }
+  ],
+  "commandName": "dsh-after-effects"
+}

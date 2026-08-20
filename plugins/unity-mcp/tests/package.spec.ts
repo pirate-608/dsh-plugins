@@ -17,7 +17,7 @@ describe('package metadata', () => {
     expect(manifest.name).toBe('@pirate-608/dsh-unity-mcp')
     expect(manifest.bin).toEqual({ 'dsh-unity-mcp': 'lib/cli.js' })
     expect(manifest.dsh.bundle.patch).toBe('./cordis.patch.yml')
-    expect(manifest.dependencies).toBeUndefined()
+    expect(manifest.dependencies).toEqual({ '@pirate-608/dsh-plugin-kit': 'workspace:^' })
     expect(manifest.peerDependencies['@deepseek-ai/dsh']).toBe('>=0.0.1-rc.5 <0.2.0')
     await expect(readFile(join(ROOT, 'cordis.patch.yml'), 'utf8')).resolves.toBe('[]\n')
   })

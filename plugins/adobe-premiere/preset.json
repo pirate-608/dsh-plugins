@@ -1,0 +1,58 @@
+{
+  "id": "premiere",
+  "name": "Premiere Pro",
+  "description": "Inspect and edit Adobe Premiere Pro projects.",
+  "providerName": "premiere-skills",
+  "platform": "win32",
+  "mcpServers": [
+    {
+      "id": "premiere-mcp",
+      "serverName": "premiere_pro",
+      "command": "node",
+      "args": [
+        "./scripts/start-premiere-mcp.cjs"
+      ],
+      "env": {},
+      "cwd": ".",
+      "toolCallTimeoutMs": 300000,
+      "failOnStartupError": true
+    }
+  ],
+  "policy": {
+    "serverNames": [
+      "premiere_pro"
+    ],
+    "readOnly": [
+      "mcp__premiere_pro__get_project_info",
+      "mcp__premiere_pro__list_sequences",
+      "mcp__premiere_pro__get_active_sequence",
+      "mcp__premiere_pro__list_project_items"
+    ],
+    "ask": [],
+    "deny": []
+  },
+  "runtime": {
+    "install": {
+      "command": "powershell.exe",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "./scripts/install-premiere-bridge.ps1"
+      ],
+      "cwd": "."
+    }
+  },
+  "doctor": [
+    {
+      "label": "Node.js",
+      "command": "node",
+      "args": [
+        "--version"
+      ]
+    }
+  ],
+  "commandName": "dsh-premiere"
+}

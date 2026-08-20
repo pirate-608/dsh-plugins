@@ -1,0 +1,148 @@
+[
+  {
+    "id": "zju-read",
+    "name": "ZJU Learning (Read)",
+    "description": "Read ZJU course data without submission tools.",
+    "providerName": "zju-read-skills",
+    "platform": "win32",
+    "mcpServers": [
+      {
+        "id": "zju-read-mcp",
+        "serverName": "zju_learning",
+        "command": "uv",
+        "args": [
+          "run",
+          "--project",
+          "./runtime",
+          "--frozen",
+          "python",
+          "./scripts/start_mcp.py"
+        ],
+        "env": {
+          "ZJU_SUBMISSION_TOOLS": "disabled"
+        },
+        "cwd": ".",
+        "toolCallTimeoutMs": 300000,
+        "failOnStartupError": true
+      }
+    ],
+    "policy": {
+      "serverNames": [
+        "zju_learning"
+      ],
+      "readOnly": [
+        "mcp__zju_learning__zju_doctor",
+        "mcp__zju_learning__zju_auth_status",
+        "mcp__zju_learning__zju_list_terms",
+        "mcp__zju_learning__zju_list_courses",
+        "mcp__zju_learning__zju_get_course",
+        "mcp__zju_learning__zju_list_todos",
+        "mcp__zju_learning__zju_list_assignments",
+        "mcp__zju_learning__zju_get_assignment",
+        "mcp__zju_learning__zju_list_grades"
+      ],
+      "ask": [],
+      "deny": []
+    },
+    "runtime": {
+      "install": {
+        "command": "uv",
+        "args": [
+          "sync",
+          "--project",
+          "./runtime",
+          "--frozen"
+        ],
+        "cwd": "."
+      }
+    },
+    "doctor": [
+      {
+        "label": "Node.js",
+        "command": "node",
+        "args": [
+          "--version"
+        ]
+      },
+      {
+        "label": "uv",
+        "command": "uv",
+        "args": [
+          "--version"
+        ]
+      }
+    ],
+    "commandName": "dsh-zju-learning-tools"
+  },
+  {
+    "id": "zju-submit",
+    "name": "ZJU Learning (Submit)",
+    "description": "Prepare and submit one reviewed ordinary assignment with approval.",
+    "providerName": "zju-submit-skills",
+    "platform": "win32",
+    "mcpServers": [
+      {
+        "id": "zju-submit-mcp",
+        "serverName": "zju_learning",
+        "command": "uv",
+        "args": [
+          "run",
+          "--project",
+          "./runtime",
+          "--frozen",
+          "python",
+          "./scripts/start_mcp.py"
+        ],
+        "env": {
+          "ZJU_SUBMISSION_TOOLS": "enabled"
+        },
+        "cwd": ".",
+        "toolCallTimeoutMs": 300000,
+        "failOnStartupError": true
+      }
+    ],
+    "policy": {
+      "serverNames": [
+        "zju_learning"
+      ],
+      "readOnly": [
+        "mcp__zju_learning__zju_doctor",
+        "mcp__zju_learning__zju_auth_status"
+      ],
+      "ask": [
+        "mcp__zju_learning__zju_prepare_assignment_submission",
+        "mcp__zju_learning__zju_commit_assignment_submission"
+      ],
+      "deny": []
+    },
+    "runtime": {
+      "install": {
+        "command": "uv",
+        "args": [
+          "sync",
+          "--project",
+          "./runtime",
+          "--frozen"
+        ],
+        "cwd": "."
+      }
+    },
+    "doctor": [
+      {
+        "label": "Node.js",
+        "command": "node",
+        "args": [
+          "--version"
+        ]
+      },
+      {
+        "label": "uv",
+        "command": "uv",
+        "args": [
+          "--version"
+        ]
+      }
+    ],
+    "commandName": "dsh-zju-learning-tools"
+  }
+]

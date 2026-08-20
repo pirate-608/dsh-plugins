@@ -1,0 +1,63 @@
+{
+  "id": "zotero",
+  "name": "Zotero Research",
+  "description": "Research and safely organize a local Zotero library.",
+  "providerName": "zotero-skills",
+  "mcpServers": [
+    {
+      "id": "zotero-mcp",
+      "serverName": "zotero",
+      "command": "uvx",
+      "args": [
+        "--from",
+        "zotero-mcp-server[semantic,pdf]==0.9.1",
+        "zotero-mcp-server",
+        "serve",
+        "--transport",
+        "stdio"
+      ],
+      "env": {
+        "ZOTERO_LOCAL": "true",
+        "ZOTERO_MCP_TOOLSETS": "libraries,search-admin,pdf-geometry,discovery",
+        "ZOTERO_EMBEDDING_MODEL": "ollama",
+        "OLLAMA_EMBEDDING_MODEL": "bge-m3:latest",
+        "OLLAMA_BASE_URL": "http://127.0.0.1:11434"
+      },
+      "cwd": "",
+      "toolCallTimeoutMs": 300000,
+      "failOnStartupError": true
+    }
+  ],
+  "policy": {
+    "serverNames": [
+      "zotero"
+    ],
+    "readOnly": [
+      "mcp__zotero__zotero_search_items",
+      "mcp__zotero__zotero_semantic_search",
+      "mcp__zotero__zotero_get_search_database_status",
+      "mcp__zotero__zotero_export_bibliography"
+    ],
+    "ask": [
+      "mcp__zotero__zotero_update_search_database"
+    ],
+    "deny": []
+  },
+  "doctor": [
+    {
+      "label": "Node.js",
+      "command": "node",
+      "args": [
+        "--version"
+      ]
+    },
+    {
+      "label": "uvx",
+      "command": "uvx",
+      "args": [
+        "--version"
+      ]
+    }
+  ],
+  "commandName": "dsh-zotero-mcp"
+}

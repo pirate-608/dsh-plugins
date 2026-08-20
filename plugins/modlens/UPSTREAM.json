@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "upstream": {
+    "name": "ModLens",
+    "repository": "https://github.com/liustack/modlens",
+    "version": "3.22.0",
+    "commit": "cb481974e1154afffd3835689284d3d28e57c7e1",
+    "license": "MIT"
+  },
+  "derivation": "Narrow source derivation retaining the evidence schema and paste client while replacing the provider product surface with named Codex, OpenAI-compatible, and Ollama routes."
+}

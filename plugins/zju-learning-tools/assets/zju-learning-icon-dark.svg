@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Open book and campus window">
+  <rect width="256" height="256" rx="52" fill="#0F172A"/>
+  <path d="M128 67c-23-17-52-22-82-16v127c30-6 59-1 82 16 23-17 52-22 82-16V51c-30-6-59-1-82 16Z" fill="#172554" stroke="#93C5FD" stroke-width="12" stroke-linejoin="round"/>
+  <path d="M128 67v127M65 84c17-2 31 1 45 9M65 111c17-2 31 1 45 9M191 84c-17-2-31 1-45 9M191 111c-17-2-31 1-45 9" fill="none" stroke="#DBEAFE" stroke-width="9" stroke-linecap="round"/>
+  <path d="M92 45h72l-36-22-36 22Z" fill="#FBBF24"/>
+</svg>

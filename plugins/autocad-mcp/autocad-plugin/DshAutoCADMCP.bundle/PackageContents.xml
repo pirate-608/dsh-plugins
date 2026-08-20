@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationPackage
+  SchemaVersion="1.0"
+  AppVersion="0.1.0"
+  ProductCode="{CF099597-7809-46DB-89B5-83377B4786BC}"
+  UpgradeCode="{4AA8D66C-1214-46E7-9C80-B46FC11F8E8A}"
+  Name="DSH AutoCAD MCP Dispatcher"
+  Description="Safe file IPC dispatcher for the autocad-mcp DSH integration">
+  <CompanyDetails Name="Local DSH integration" />
+  <Components>
+    <RuntimeRequirements OS="Win64" Platform="AutoCAD*|ACADLT" SeriesMin="R24.3" SupportPath="./Contents" />
+    <ComponentEntry
+      AppName="DshAutoCADMCP"
+      AppDescription="AutoLISP dispatcher for structured MCP commands"
+      ModuleName="./Contents/mcp_dispatch.lsp"
+      PerDocument="True" />
+  </Components>
+</ApplicationPackage>

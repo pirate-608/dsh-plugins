@@ -1,0 +1,14 @@
+{
+  "name": "Adobe_Premiere_Pro_MCP",
+  "version": "1.0.0",
+  "repository": "https://github.com/hetpatel-11/Adobe_Premiere_Pro_MCP",
+  "commit": "f41aa2ca95947700f6f4e73e9ce842713d5b92bb",
+  "license": "MIT",
+  "runtimeDependencies": {
+    "@modelcontextprotocol/sdk": "1.30.0",
+    "uuid": "11.1.1",
+    "ws": "8.21.1"
+  },
+  "productionAudit": "0 vulnerabilities",
+  "bundle": "premiere-mcp.bundle.mjs"
+}

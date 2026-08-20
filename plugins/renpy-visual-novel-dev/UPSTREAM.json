@@ -1,0 +1,30 @@
+{
+  "components": [
+    {
+      "name": "renpy-mcp",
+      "repository": "https://github.com/fracturedring/renpy-mcp",
+      "revision": "5c131617b0bd1f003d6edeac2c1025e1531eaeb6",
+      "version": "0.1.0",
+      "integration": "vendored",
+      "license": "AGPL-3.0-or-later"
+    },
+    {
+      "name": "RenForge",
+      "repository": "https://github.com/alex-jordan547/renforge-mcp",
+      "revision": "51cab041b5c1b7df488b7ea3a1847318dd65ed11",
+      "version": "0.7.0",
+      "integration": "runtime package via uvx",
+      "license": "MIT"
+    }
+  ],
+  "design_references": [
+    {
+      "repository": "https://github.com/banjtheman/renpy_mcp_server",
+      "use": "Background, sprite, expression-variant, and post-processing workflow concepts; no code bundled."
+    },
+    {
+      "repository": "https://github.com/Muanchen2/renpy-mcp",
+      "use": "CJK font audit and lightweight asset-inspection concepts; no code bundled."
+    }
+  ]
+}

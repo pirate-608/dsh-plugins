@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "runtime": {
+    "name": "zotero-mcp",
+    "repository": "https://github.com/54yyyu/zotero-mcp",
+    "package": "zotero-mcp-server",
+    "version": "0.9.1",
+    "tag": "v0.9.1",
+    "commit": "e9cffaa9f43f60c3559a7d3930dfe5f5fdcb3d84",
+    "license": "MIT",
+    "integration": "Executed with uvx from zotero-mcp-server[semantic,pdf]==0.9.1 over stdio; no upstream source is vendored."
+  },
+  "semantic_search": {
+    "provider": "ollama",
+    "base_url": "http://127.0.0.1:11434",
+    "model": "bge-m3:latest",
+    "remote_embedding_api": false
+  }
+}

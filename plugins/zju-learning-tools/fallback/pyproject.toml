@@ -1,0 +1,21 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zju-tronclass-fallback"
+version = "0.1.0"
+description = "Restricted and encrypted tronclass-cli fallback for ZJU Learning Tools"
+requires-python = ">=3.9,<3.10"
+license = { text = "MIT" }
+dependencies = [
+  "cryptography==46.0.3",
+  "keyring==22.0.1",
+  "tronclass-cli==0.2.8"
+]
+
+[project.scripts]
+zju-tronclass-fallback = "zju_tronclass_fallback.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/zju_tronclass_fallback"]

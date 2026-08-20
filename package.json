@@ -8,9 +8,12 @@
     "node": "^22.19.0 || >=24.0.0"
   },
   "scripts": {
-    "build": "pnpm -r build",
-    "typecheck": "pnpm -r typecheck",
-    "test": "pnpm -r test",
+    "build": "pnpm --filter @pirate-608/dsh-plugin-kit build && pnpm -r build",
+    "typecheck": "pnpm --filter @pirate-608/dsh-plugin-kit build && pnpm -r typecheck",
+    "test": "pnpm --filter @pirate-608/dsh-plugin-kit build && pnpm -r test",
     "check": "pnpm run typecheck && pnpm run test && pnpm run build"
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh": "0.1.0-rc.8"
   }
 }

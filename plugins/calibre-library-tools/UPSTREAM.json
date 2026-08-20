@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "runtime": {
+    "name": "calibre-mcp",
+    "repository": "https://github.com/caelum29/calibre-mcp",
+    "package": "calibre-mcp",
+    "version": "0.7.2",
+    "license": "MIT",
+    "integrity": "sha512-lAYvcaZ/lIznpHYO6iN169r81bvyG6IIHYbFsAu2ctY26rGKUfQxobtTh+d0VeY8SuOcYReXgRVOhFjbx0rXVw==",
+    "integration": "Executed with npx calibre-mcp@0.7.2; no upstream source is vendored."
+  }
+}

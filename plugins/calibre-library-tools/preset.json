@@ -1,0 +1,61 @@
+{
+  "id": "calibre-library",
+  "name": "Calibre Library",
+  "description": "Read and analyze a Calibre library with writes disabled by default.",
+  "providerName": "calibre-library-skills",
+  "mcpServers": [
+    {
+      "id": "calibre-mcp",
+      "serverName": "calibre",
+      "command": "npx",
+      "args": [
+        "-y",
+        "calibre-mcp@0.7.2"
+      ],
+      "env": {
+        "CALIBRE_MCP_SERVER_URL": "http://127.0.0.1:8080",
+        "CALIBRE_MCP_ENABLE_WRITE": "0"
+      },
+      "cwd": "",
+      "toolCallTimeoutMs": 300000,
+      "failOnStartupError": true
+    }
+  ],
+  "policy": {
+    "serverNames": [
+      "calibre"
+    ],
+    "readOnly": [
+      "mcp__calibre__calibre_ping",
+      "mcp__calibre__calibre_list_libraries",
+      "mcp__calibre__calibre_search",
+      "mcp__calibre__calibre_get_book",
+      "mcp__calibre__calibre_get_content",
+      "mcp__calibre__calibre_get_figures",
+      "mcp__calibre__calibre_list_categories",
+      "mcp__calibre__calibre_find_duplicates",
+      "mcp__calibre__calibre_quality_report"
+    ],
+    "ask": [
+      "mcp__calibre__calibre_build_index"
+    ],
+    "deny": []
+  },
+  "doctor": [
+    {
+      "label": "Node.js",
+      "command": "node",
+      "args": [
+        "--version"
+      ]
+    },
+    {
+      "label": "npx",
+      "command": "npx",
+      "args": [
+        "--version"
+      ]
+    }
+  ],
+  "commandName": "dsh-calibre-library-tools"
+}

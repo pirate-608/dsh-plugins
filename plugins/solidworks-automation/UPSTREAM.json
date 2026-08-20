@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "source": {
+    "name": "solidworks-automation-skill",
+    "repository": "https://github.com/wzyn20051216/solidworks-automation-skill",
+    "version": "0.3.0",
+    "commit": "232236e52a02cb79708ecb4fb0fe01209ec8077f",
+    "license": "MIT"
+  },
+  "packaging": {
+    "type": "curated-codex-plugin",
+    "included": [
+      "SolidWorks Python COM scripts",
+      "stdio MCP server",
+      "agent workflow references",
+      "focused SolidWorks and AutoCAD subskills",
+      "small regression and usage examples"
+    ],
+    "excluded": [
+      "CAD Studio React and Tauri desktop application",
+      "Rust desktop shell",
+      "desktop wallpapers, videos and application screenshots",
+      "desktop release builders and UI end-to-end tests",
+      "upstream npm, pip and multi-client installers",
+      "upstream repository administration and product research files"
+    ],
+    "modifications": "Removed standalone CAD Studio product sources and development-only repository content; adjusted Skill routing and MCP documentation to the Codex plugin runtime."
+  }
+}

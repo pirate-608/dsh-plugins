@@ -1,0 +1,70 @@
+{
+  "id": "autocad",
+  "name": "AutoCAD",
+  "description": "Automate AutoCAD with text-first evidence and explicit approvals.",
+  "providerName": "autocad-skills",
+  "platform": "win32",
+  "mcpServers": [
+    {
+      "id": "autocad-mcp",
+      "serverName": "autocad",
+      "command": "uv",
+      "args": [
+        "run",
+        "--project",
+        "./vendor/autocad-mcp",
+        "python",
+        "-m",
+        "autocad_mcp"
+      ],
+      "env": {
+        "AUTOCAD_MCP_BACKEND": "auto",
+        "AUTOCAD_MCP_IPC_DIR": "C:/temp/dsh-autocad-mcp",
+        "AUTOCAD_MCP_IPC_TIMEOUT": "30",
+        "AUTOCAD_MCP_ONLY_TEXT": "true"
+      },
+      "cwd": ".",
+      "toolCallTimeoutMs": 300000,
+      "failOnStartupError": true
+    }
+  ],
+  "policy": {
+    "serverNames": [
+      "autocad"
+    ],
+    "readOnly": [],
+    "ask": [],
+    "deny": []
+  },
+  "runtime": {
+    "install": {
+      "command": "powershell.exe",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "./scripts/install.ps1"
+      ],
+      "cwd": "."
+    }
+  },
+  "doctor": [
+    {
+      "label": "Node.js",
+      "command": "node",
+      "args": [
+        "--version"
+      ]
+    },
+    {
+      "label": "uv",
+      "command": "uv",
+      "args": [
+        "--version"
+      ]
+    }
+  ],
+  "commandName": "dsh-autocad-mcp"
+}

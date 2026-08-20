@@ -1,0 +1,62 @@
+{
+  "name": "@pirate-608/dsh-zju-learning-tools",
+  "version": "0.1.0",
+  "description": "Read and separately approve bounded ZJU learning operations",
+  "type": "module",
+  "bin": {
+    "dsh-zju-learning-tools": "./bin/cli.js"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "bin",
+    "preset.json",
+    "skills",
+    "scripts",
+    "vendor",
+    "runtime",
+    "fallback",
+    "mcp-server",
+    "autocad-plugin",
+    "assets",
+    "README*",
+    "LICENSE*",
+    "NOTICE*",
+    "UPSTREAM*",
+    "cordis.patch.yml"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh": ">=0.0.1-rc.5 <0.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/dsh": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@pirate-608/dsh-plugin-kit": "workspace:^"
+  },
+  "devDependencies": {
+    "@deepseek-ai/dsh": "0.1.0-rc.8"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "build": "node --check bin/cli.js",
+    "typecheck": "node --check bin/cli.js",
+    "test": "node --check bin/cli.js",
+    "prepack": "pnpm run build && pnpm run test"
+  }
+}

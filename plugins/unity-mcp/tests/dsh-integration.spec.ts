@@ -16,7 +16,8 @@ import AgentPresets from '@deepseek-ai/dsh-agent-presets'
 import SkillRuntime from '@deepseek-ai/dsh-skill'
 import { scopeOf } from '@deepseek-ai/dsh-scope'
 import { afterEach, describe, expect, it } from 'vitest'
-import { installPreset, type PresetOperationContext } from '../src/preset.js'
+import { installPreset, type PresetContext } from '@pirate-608/dsh-plugin-kit'
+import { UNITY_PRESET } from '../src/spec.js'
 
 const PACKAGE_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 const requireHere = createRequire(import.meta.url)
@@ -28,7 +29,7 @@ afterEach(async () => {
 })
 
 describe('assembled DSH preset', () => {
-  it('keeps Unity tools and skills scoped and renders MCP images as text placeholders', async () => {
+  it('keeps Unity tools and skills scoped and renders the versioned text-only image diagnostic', async () => {
     const root = await mkdtemp(join(tmpdir(), 'dsh-unity-integration-'))
     roots.push(root)
     const standardPresetDir = join(root, 'standard')
@@ -36,7 +37,8 @@ describe('assembled DSH preset', () => {
     await mkdir(standardPresetDir, { recursive: true })
     await writeFile(join(standardPresetDir, 'noop.mjs'), 'export default () => {}\n')
     await writeFile(join(standardPresetDir, 'agent.cordis.yml'), '- id: noop\n  name: ./noop.mjs\n')
-    const context: PresetOperationContext = {
+    const dshManifest = JSON.parse(await readFile(requireHere.resolve('@deepseek-ai/dsh/package.json'), 'utf8')) as { version: string }
+    const context: PresetContext = {
       dshHome,
       profileName: 'web',
       profileDir: join(dshHome, 'profiles', 'web'),
@@ -44,10 +46,10 @@ describe('assembled DSH preset', () => {
       packageRoot: PACKAGE_ROOT,
       mcpClientPlugin: requireHere.resolve('@deepseek-ai/dsh-mcp-client'),
       skillFilesystemPlugin: requireHere.resolve('@deepseek-ai/dsh-skill-filesystem'),
-      packageVersion: '0.1.0',
-      dshVersion: '0.1.0-rc.6',
+      policyPlugin: requireHere.resolve('@pirate-608/dsh-plugin-kit/policy'),
+      dshVersion: dshManifest.version,
     }
-    const installed = await installPreset(context)
+    const installed = await installPreset(UNITY_PRESET, context)
     const compositionPath = join(installed.presetDir, 'agent.cordis.yml')
     const generated = await readFile(compositionPath, 'utf8')
     const fixtureTransport = [
@@ -107,10 +109,16 @@ describe('assembled DSH preset', () => {
         agent: unity,
       })
       expect(screenshot.isError).toBe(false)
-      expect(screenshot.content).toEqual([{
-        type: 'text',
-        text: 'Saved screenshot: Assets/Screenshots/fixture.png\n[image: image/png, content discarded]',
-      }])
+      if (dshManifest.version === '0.1.0-rc.8') {
+        expect(screenshot.content).toEqual([
+          { type: 'text', text: 'Saved screenshot: Assets/Screenshots/fixture.png' },
+          { type: 'text', text: '[image unavailable: image/png; no attachment store is mounted; raw image data remains available to programmatic callers]' },
+        ])
+      } else {
+        expect(screenshot.content).toEqual([{
+          type: 'text', text: 'Saved screenshot: Assets/Screenshots/fixture.png\n[image: image/png, content discarded]',
+        }])
+      }
     } finally {
       await app.fiber.dispose()
     }

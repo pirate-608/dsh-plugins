@@ -1,0 +1,11 @@
+{
+  "name": "@pirate-608/dsh-migration-tests",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": { "test": "vitest run --config vitest.config.ts" },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "vitest": "^3.2.4"
+  }
+}
