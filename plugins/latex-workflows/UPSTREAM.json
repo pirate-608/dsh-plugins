@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "runtime": {
+    "integration": "Uses a user-installed Tectonic or MiKTeX distribution; no TeX runtime is vendored."
+  },
+  "source": {
+    "repository": "https://github.com/pirate-608/codex-plugins",
+    "commit": "8e41368ab7783151a13550055831a543e4ff1383",
+    "tree": "d25b8156e57b1a96d45b351e931ec9aa7eef8fbe"
+  }
+}

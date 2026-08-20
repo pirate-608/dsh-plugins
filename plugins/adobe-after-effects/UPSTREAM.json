@@ -1,0 +1,9 @@
+{
+  "name": "ae-mcp",
+  "repository": "https://github.com/JUNKDOGE-JOE/after-effects-mcp",
+  "reviewedVersion": "0.9.2",
+  "reviewedCommit": "16827c75ef8a848932f70b9974530204cadd47ce",
+  "reviewedAt": "2026-07-31",
+  "license": "MIT",
+  "integration": "installed stable launcher; upstream runtime is not vendored"
+}

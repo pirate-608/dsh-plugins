@@ -1,0 +1,4 @@
+Repository: https://github.com/puran-water/autocad-mcp
+Commit: 95476a33a1c246308326eb4709d6379ef2efdbc1
+Commit date: 2026-02-20T12:36:06-05:00
+Integration changes: disabled arbitrary execute_lisp exposure; changed IPC directory to C:/temp/codex-autocad-mcp/.

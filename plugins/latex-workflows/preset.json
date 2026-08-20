@@ -1,0 +1,32 @@
+{
+  "id": "latex-workflows",
+  "name": "LaTeX Workflows",
+  "description": "Compile and validate LaTeX documents.",
+  "providerName": "latex-workflows-skills",
+  "doctor": [
+    {
+      "label": "Node.js",
+      "command": "node",
+      "args": [
+        "--version"
+      ]
+    },
+    {
+      "label": "Tectonic",
+      "command": "tectonic",
+      "args": [
+        "--version"
+      ],
+      "optional": true
+    },
+    {
+      "label": "pdfLaTeX",
+      "command": "pdflatex",
+      "args": [
+        "--version"
+      ],
+      "optional": true
+    }
+  ],
+  "commandName": "dsh-latex-workflows"
+}

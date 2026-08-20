@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "runtime": {
+    "name": "Adobe_Premiere_Pro_MCP",
+    "repository": "https://github.com/hetpatel-11/Adobe_Premiere_Pro_MCP",
+    "version": "1.0.0",
+    "commit": "f41aa2ca95947700f6f4e73e9ce842713d5b92bb",
+    "license": "MIT",
+    "integration": "Vendored as a reviewed JavaScript bundle and CEP bridge."
+  }
+}

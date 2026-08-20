@@ -1,0 +1,9 @@
+[project]
+name = "renpy-mcp-plugin-runtime"
+version = "0.1.0"
+description = "Bundled runtime dependencies for the Ren'Py Visual Novel Dev plugin."
+requires-python = ">=3.11"
+dependencies = ["mcp==1.28.1", "pydantic>=2.0", "unidiff>=0.7", "pillow>=10.0"]
+
+[tool.uv]
+package = false

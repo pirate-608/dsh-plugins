@@ -1,0 +1,23 @@
+[build-system]
+requires = ["hatchling==1.27.0"]
+build-backend = "hatchling.build"
+
+[project]
+name = "zju-learning-tools-runtime"
+version = "0.3.0"
+description = "Local ZJU Learning Tools MCP with gated assignment submission"
+requires-python = ">=3.11,<3.14"
+license = { text = "MIT" }
+dependencies = [
+  "cryptography==46.0.3",
+  "httpx==0.28.1",
+  "keyring==25.7.0",
+  "lazy-core==0.2.6",
+  "mcp==1.25.0"
+]
+
+[tool.uv.sources]
+lazy-core = { path = "../vendor/lazy-core" }
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/zju_learning_tools"]

@@ -1,0 +1,50 @@
+{
+  "id": "solidworks",
+  "name": "SolidWorks",
+  "description": "Automate SolidWorks parts, assemblies, drawings, and review.",
+  "providerName": "solidworks-skills",
+  "platform": "win32",
+  "mcpServers": [
+    {
+      "id": "solidworks-mcp",
+      "serverName": "solidworks",
+      "command": "python",
+      "args": [
+        "./mcp-server/server.py"
+      ],
+      "env": {},
+      "cwd": "./skills/solidworks-automation",
+      "toolCallTimeoutMs": 300000,
+      "failOnStartupError": true
+    }
+  ],
+  "policy": {
+    "serverNames": [
+      "solidworks"
+    ],
+    "readOnly": [
+      "mcp__solidworks__solidworks_health_check",
+      "mcp__solidworks__solidworks_inspect_hole_features",
+      "mcp__solidworks__solidworks_inspect_motion_studies"
+    ],
+    "ask": [],
+    "deny": []
+  },
+  "doctor": [
+    {
+      "label": "Node.js",
+      "command": "node",
+      "args": [
+        "--version"
+      ]
+    },
+    {
+      "label": "Python",
+      "command": "python",
+      "args": [
+        "--version"
+      ]
+    }
+  ],
+  "commandName": "dsh-solidworks-automation"
+}

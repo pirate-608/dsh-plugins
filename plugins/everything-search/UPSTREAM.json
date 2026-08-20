@@ -1,0 +1,18 @@
+{
+  "components": [
+    {
+      "name": "ES",
+      "repository": "https://github.com/voidtools/ES",
+      "revision_reviewed": "50c77e922b04a4514af078503443dca8f96a0b1e",
+      "version_tested": "1.1.0.37",
+      "integration": "external command discovered from PATH or common Windows locations; binary not bundled",
+      "license": "MIT"
+    },
+    {
+      "name": "Everything",
+      "homepage": "https://www.voidtools.com/",
+      "version_tested": "1.4.1.1032",
+      "integration": "user-installed local application and IPC index; not bundled"
+    }
+  ]
+}

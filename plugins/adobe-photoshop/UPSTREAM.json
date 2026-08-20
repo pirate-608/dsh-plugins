@@ -1,0 +1,13 @@
+{
+  "name": "photoshop-mcp-server",
+  "repository": "https://github.com/loonghao/photoshop-python-api-mcp-server",
+  "reviewedVersion": "0.1.11",
+  "reviewedCommit": "3e317700b0b4f06f521c2efc19a0d8b376ca690d",
+  "reviewedAt": "2026-08-01",
+  "license": "MIT",
+  "runtime": {
+    "python": "3.12",
+    "mcp": "1.29.0",
+    "photoshop-python-api": "0.24.2"
+  }
+}

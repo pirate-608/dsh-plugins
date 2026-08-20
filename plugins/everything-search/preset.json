@@ -1,0 +1,24 @@
+{
+  "id": "everything-search",
+  "name": "Everything Search",
+  "description": "Local Windows file discovery with Everything.",
+  "providerName": "everything-search-skills",
+  "platform": "win32",
+  "doctor": [
+    {
+      "label": "Node.js",
+      "command": "node",
+      "args": [
+        "--version"
+      ]
+    },
+    {
+      "label": "Everything ES CLI",
+      "command": "es.exe",
+      "args": [
+        "-version"
+      ]
+    }
+  ],
+  "commandName": "dsh-everything-search"
+}

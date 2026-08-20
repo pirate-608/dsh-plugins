@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "repository": "https://github.com/pirate-608/codex-plugins",
+  "commit": "8e41368ab7783151a13550055831a543e4ff1383",
+  "plugins": {
+    "adobe-after-effects": "64ea74971d0d0502aa03db56850314db44d82c63",
+    "adobe-photoshop": "5a1e2217fa64d238f6dc1b8eea8e1e263eeb773a",
+    "adobe-premiere": "5aa820182122567a39d21d623878218b37c39728",
+    "autocad-mcp-codex": "8304c5cd5a37d23f7da9cf7d29c311936562d29c",
+    "calibre-library-tools": "b640b9802f1a36a0302862f9a6992ebb48fd44d6",
+    "everything-search": "b350b4b8f98f57b575ca418360a147fef78930d1",
+    "latex-workflows": "d25b8156e57b1a96d45b351e931ec9aa7eef8fbe",
+    "renpy-visual-novel-dev": "4ff2fe925be415be71120f103c206a9102d1ee15",
+    "solidworks-automation": "1def3c471220c3a9c0c3339a3ea4ddf82b68ab0d",
+    "unity-mcp": "50406a3ef7153ceee227ef07b79c71feb9caef75",
+    "zju-learning-tools": "154e958c3b9f2bcbedfc61967d4069fcc12b8d52",
+    "zotero-mcp": "96d6663ebd6a6de30cce8bda691bd45ffb9e57ef"
+  },
+  "hash_kind": "git-tree-sha1"
+}

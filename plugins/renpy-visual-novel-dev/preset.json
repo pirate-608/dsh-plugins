@@ -1,0 +1,84 @@
+{
+  "id": "renpy",
+  "name": "RenPy Development",
+  "description": "Develop and validate an explicit RenPy project root.",
+  "providerName": "renpy-skills",
+  "mcpServers": [
+    {
+      "id": "renpy-mcp",
+      "serverName": "renpy",
+      "command": "uv",
+      "args": [
+        "run",
+        "--project",
+        "./vendor/renpy-mcp",
+        "python",
+        "./scripts/start_renpy_mcp.py"
+      ],
+      "env": {
+        "RENPY_MCP_TIERS": "1,2,3"
+      },
+      "cwd": ".",
+      "toolCallTimeoutMs": 300000,
+      "failOnStartupError": true
+    },
+    {
+      "id": "renforge-mcp",
+      "serverName": "renforge",
+      "command": "uvx",
+      "args": [
+        "renforge@0.7.0",
+        "serve"
+      ],
+      "env": {},
+      "cwd": ".",
+      "toolCallTimeoutMs": 300000,
+      "failOnStartupError": true
+    }
+  ],
+  "policy": {
+    "serverNames": [
+      "renpy",
+      "renforge"
+    ],
+    "readOnly": [],
+    "ask": [],
+    "deny": []
+  },
+  "runtime": {
+    "install": {
+      "command": "uv",
+      "args": [
+        "sync",
+        "--project",
+        "./vendor/renpy-mcp",
+        "--frozen"
+      ],
+      "cwd": "."
+    }
+  },
+  "doctor": [
+    {
+      "label": "Node.js",
+      "command": "node",
+      "args": [
+        "--version"
+      ]
+    },
+    {
+      "label": "uv",
+      "command": "uv",
+      "args": [
+        "--version"
+      ]
+    },
+    {
+      "label": "uvx",
+      "command": "uvx",
+      "args": [
+        "--version"
+      ]
+    }
+  ],
+  "commandName": "dsh-renpy-visual-novel-dev"
+}

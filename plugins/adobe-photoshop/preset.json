@@ -1,0 +1,84 @@
+{
+  "id": "photoshop",
+  "name": "Photoshop",
+  "description": "Inspect and edit Adobe Photoshop documents.",
+  "providerName": "photoshop-skills",
+  "platform": "win32",
+  "mcpServers": [
+    {
+      "id": "photoshop-mcp",
+      "serverName": "photoshop",
+      "command": "powershell.exe",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-NonInteractive",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "./scripts/start-photoshop-mcp.ps1"
+      ],
+      "env": {},
+      "cwd": ".",
+      "toolCallTimeoutMs": 300000,
+      "failOnStartupError": true
+    }
+  ],
+  "policy": {
+    "serverNames": [
+      "photoshop"
+    ],
+    "readOnly": [
+      "mcp__photoshop__photoshop_get_session_info"
+    ],
+    "ask": [],
+    "deny": []
+  },
+  "runtime": {
+    "install": {
+      "command": "powershell.exe",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "./scripts/install-photoshop-mcp.ps1"
+      ],
+      "cwd": "."
+    },
+    "status": {
+      "command": "powershell.exe",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-ExecutionPolicy",
+        "Bypass",
+        "-File",
+        "./scripts/install-photoshop-mcp.ps1",
+        "-CheckOnly"
+      ],
+      "cwd": "."
+    }
+  },
+  "doctor": [
+    {
+      "label": "Node.js",
+      "command": "node",
+      "args": [
+        "--version"
+      ]
+    },
+    {
+      "label": "PowerShell",
+      "command": "powershell.exe",
+      "args": [
+        "-NoLogo",
+        "-NoProfile",
+        "-Command",
+        "$PSVersionTable.PSVersion.ToString()"
+      ]
+    }
+  ],
+  "commandName": "dsh-photoshop"
+}
